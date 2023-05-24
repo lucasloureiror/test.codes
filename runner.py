@@ -33,7 +33,7 @@ def obter_configuracoes():
         config['comando'] = linguagem['comando']
         config['extensao'] = linguagem['extensao']
         config['nome_arquivo'] = input("Qual o nome do arquivo (sem a extensão)?\n")
-        config['caminho_testes'] = input("Qual o caminho da pasta que possui os testes?\nSe ele estiver em uma pasta aqui dentro chamada 'casos' digite apenas casos\n")
+        config['caminho_testes'] = input("Qual o caminho da pasta que possui os testes (arquivos .in e .out)?\nSe ele estiver em uma pasta aqui dentro chamada 'casos' digite apenas casos\n")
         with open(CONFIG_FILE, 'w') as f:
             json.dump(config, f, indent=4)
         print("As configurações foram salvas no arquivo 'test_config.json'.")

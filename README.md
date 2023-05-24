@@ -1,14 +1,30 @@
-# Script de Testes para Run.Codes
+# Run.Codes Test Helper
 
-Este repositório contém um script em Python desenvolvido para facilitar os testes de código contra os casos de teste da plataforma run.codes, amplamente utilizada na Universidade de São Paulo (USP) em São Carlos.
+Este script foi desenvolvido para auxiliar os estudantes a executarem automaticamente seus casos de testes localmente antes de submetê-los ao Run.Codes, uma plataforma de correção automática de código frequentemente utilizada no Instituto de Ciências Matemáticas e de Computação (ICMC) da Universidade de São Paulo (USP).
 
-## Descrição
+O script é compatível com as linguagens de programação C, Python e Haskell.
 
-O script `runner.py` é uma ferramenta que automatiza o processo de teste de código, permitindo que você execute os casos de teste fornecidos pela plataforma run.codes e gere um relatório com os resultados. O objetivo é auxiliar no desenvolvimento e na depuração de soluções para os problemas propostos.
+# Como Utilizar
 
-## Recursos
+### Configurando o ambiente
 
-- Execução dos casos de teste: o script realiza a execução dos casos de teste fornecidos pela plataforma run.codes, passando os inputs e verificando as saídas esperadas.
-- Relatório de resultados: ao final da execução dos casos de teste, o script gera um relatório detalhado com os resultados de cada caso, indicando quais foram aprovados e quais foram reprovados.
-- Fácil configuração: o script é flexível e permite que você especifique o caminho para o arquivo de código a ser testado, bem como o caminho para os arquivos de casos de teste (.in e .out).
+1. Clone o repositório ou baixe o script `runner.py` para o seu computador.
+2. Crie uma pasta chamada `casos` no mesmo diretório do script.
+3. Coloque os seus arquivos de teste (com as extensões `.in` e `.out`) na pasta `casos`.
+4. Na primeira vez que você executar o script, ele fará algumas perguntas para configurar o ambiente de testes:
+    - "Qual a linguagem que será utilizada nesse projeto? 1- C, 2- Python, 3- Haskell"
+    - "Qual o nome do arquivo (sem a extensão)?"
+    - "Qual o caminho da pasta que possui os testes (arquivos .in e .out)? Se ele estiver em uma pasta aqui dentro chamada 'casos' digite apenas casos"
 
+5. As respostas serão salvas em um arquivo chamado `test_config.json`. Caso queira alterar as configurações, você pode editar este arquivo diretamente ou excluí-lo e executar o script novamente para responder às perguntas.
+
+### Executando os testes
+
+1. Com o ambiente devidamente configurado, execute o script no terminal com o comando `python3 runner.py`.
+2. O script executará cada caso de teste e comparará a saída do seu programa com a saída esperada. Ele exibirá quais casos foram aprovados e quais foram reprovados, e salvará as entradas, saídas esperadas e saídas do programa para cada caso de teste em um arquivo `.diff` na pasta "resultado".
+
+# Observações
+
+Por favor, observe que o script executa o seu programa usando os comandos de terminal padrão para cada linguagem (`./` para C, `python3` para Python e `runhaskell` para Haskell). Garanta que você tenha as devidas permissões para executar os comandos de terminal no seu ambiente.
+
+Este script é um auxiliar para o teste de códigos a serem submetidos ao Run.Codes e não garante que a submissão será aprovada na plataforma. Ainda assim, ele pode ajudar a identificar erros no seu código antes da submissão, economizando tempo e reduzindo a quantidade de submissões necessárias.
