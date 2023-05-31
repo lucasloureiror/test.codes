@@ -37,6 +37,8 @@ def obter_configuracoes():
         with open(CONFIG_FILE, 'w') as f:
             json.dump(config, f, indent=4)
         print("As configurações foram salvas no arquivo 'test_config.json'.")
+    if not os.path.exists(RESULTADO_FOLDER):
+        os.makedirs(RESULTADO_FOLDER)
 
 def carregar_configuracoes():
     with open(CONFIG_FILE, 'r') as f:
