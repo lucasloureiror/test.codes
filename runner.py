@@ -17,6 +17,11 @@ LINGUAGENS = {
         'nome': 'Haskell',
         'comando': 'runhaskell',
         'extensao': '.hs'
+    },
+    '4': {
+        'nome': 'Java',
+        'comando': 'java',
+        'extensao': ''
     }
 }
 
@@ -27,12 +32,12 @@ def obter_configuracoes():
     if not os.path.isfile(CONFIG_FILE):
         print("Esta parece ser a primeira vez que você está rodando o script.")
         config = {}
-        escolha_linguagem = input("Qual a linguagem que será utilizada nesse projeto?\n1- C\n2-Python\n3-Haskell\n")
+        escolha_linguagem = input("Qual a linguagem que será utilizada nesse projeto?\n1- C\n2-Python\n3-Haskell\n4-Java\n")
         linguagem = LINGUAGENS[escolha_linguagem]
         config['linguagem'] = linguagem['nome']
         config['comando'] = linguagem['comando']
         config['extensao'] = linguagem['extensao']
-        config['nome_arquivo'] = input("Qual o nome do arquivo (sem a extensão)?\n")
+        config['nome_arquivo'] = input("Qual o nome do arquivo (sem a extensão e compilado se a linguagem for compilada)?\n")
         config['caminho_testes'] = input("Qual o caminho da pasta que possui os testes (arquivos .in e .out)?\nSe ele estiver em uma pasta aqui dentro chamada 'casos' digite apenas casos\n")
         with open(CONFIG_FILE, 'w') as f:
             json.dump(config, f, indent=4)
